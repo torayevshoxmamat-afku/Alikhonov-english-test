@@ -1,3 +1,6 @@
+
+
+      
 name: Build Android APK
 
 on:
@@ -16,11 +19,10 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.5'
+          flutter-version: '3.35.2'
           channel: stable
-          cache: true
 
-      - name: Flutter pub get
+      - name: Install dependencies
         run: flutter pub get
 
       - name: Build APK
@@ -29,5 +31,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: alikhonov-english-test-apk
+          name: app-release
           path: build/app/outputs/flutter-apk/app-release.apk
